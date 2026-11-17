@@ -743,10 +743,10 @@
                     <h2 class="section-title">Academic foundations and verified professional certifications.</h2>
                 </div>
 
-                <div class="edu-cert-grid">
-                    <!-- Left: Academic Degree Card -->
-                    <div class="edu-main-card">
-                        <div>
+                <!-- 1. Featured Academic Degree Card (Executive Bento Layout) -->
+                <div class="edu-featured-card">
+                    <div class="edu-card-main">
+                        <div class="edu-card-header">
                             <div class="edu-badge-honors">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -755,34 +755,52 @@
                             </div>
                             <h3 class="edu-degree">Bachelor of Science in Electrical and Computer Engineering</h3>
                             <div class="edu-school">Mekelle University · Computer Engineering Stream</div>
-                            <p style="color:var(--text-secondary); line-height:1.65; margin-bottom: 1.5rem;">
-                                Completed an intensive 5-year engineering program with distinguished honors. Developed in-depth theoretical and applied knowledge across computer architecture, algorithms, software systems, and artificial intelligence.
-                            </p>
                         </div>
 
-                        <div>
-                            <div class="edu-stats-row">
-                                <div class="edu-stat-item">
-                                    <strong>3.90 / 4.00</strong>
-                                    <span>Cumulative GPA</span>
-                                </div>
-                                <div class="edu-stat-item">
-                                    <strong>2026</strong>
-                                    <span>Graduation Year</span>
-                                </div>
-                                <div class="edu-stat-item">
-                                    <strong>First-Class</strong>
-                                    <span>Degree Classification</span>
-                                </div>
-                            </div>
-                            <div style="font-size: 0.8125rem; color: var(--text-muted);">
-                                <strong>Core Coursework:</strong> Artificial Intelligence, Computer Vision, Data Structures &amp; Algorithms, Operating Systems, Database Management Systems, Object-Oriented Programming, Digital Signal Processing, Cybersecurity.
+                        <p class="edu-summary">
+                            Completed an intensive 5-year engineering curriculum with distinguished honors, developing deep theoretical foundations and practical engineering skills across computer architecture, machine learning algorithms, computer vision pipelines, and full-stack systems software.
+                        </p>
+
+                        <div class="edu-coursework-block">
+                            <span class="edu-coursework-label">Core Coursework:</span>
+                            <div class="edu-course-chips">
+                                <span class="skill-chip">Artificial Intelligence</span>
+                                <span class="skill-chip">Data Structures</span>
+                                <span class="skill-chip">Algorithm Analysis and Design</span>
+                                <span class="skill-chip">Applied Mathematics I</span>
+                                <span class="skill-chip">Probability and Statistics</span>
+                                <span class="skill-chip">Robotics</span>
+                                <span class="skill-chip">Software Engineering</span>
+                                <span class="skill-chip">Database Systems</span>
+                                <span class="skill-chip">Object Oriented Programming</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right: Verified Certifications List -->
-                    <div class="certs-column">
+                    <div class="edu-card-sidebar">
+                        <div class="edu-stat-box">
+                            <span class="edu-stat-number">3.90 <span class="edu-stat-max">/ 4.00</span></span>
+                            <span class="edu-stat-title">Cumulative GPA</span>
+                        </div>
+                        <div class="edu-stat-box">
+                            <span class="edu-stat-number">2026</span>
+                            <span class="edu-stat-title">Graduation Year</span>
+                        </div>
+                        <div class="edu-stat-box">
+                            <span class="edu-stat-number">First-Class</span>
+                            <span class="edu-stat-title">Degree Honors</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Verified Professional Certifications Sub-Section -->
+                <div class="certs-section-wrap">
+                    <div class="certs-header">
+                        <h3 class="certs-subheading">Verified Professional Certifications</h3>
+                        <p class="certs-subtext">Credentials earned across machine learning, computer vision, Python, web systems, and AI ethics.</p>
+                    </div>
+
+                    <div class="certs-grid">
                         <!-- Cert 1: Introduction to Machine Learning -->
                         <div class="cert-card">
                             <div class="cert-card-header">
