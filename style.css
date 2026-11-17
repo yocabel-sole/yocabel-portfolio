@@ -1263,7 +1263,7 @@ section {
 .certs-column {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .cert-card {
@@ -1272,23 +1272,29 @@ section {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 1.25rem;
+  padding: 1.35rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
   transition: all var(--transition-fast);
 }
 
 .cert-card:hover {
   border-color: var(--border-strong);
-  transform: translateX(4px);
+  transform: translateY(-2px);
   background: var(--bg-card-hover);
+}
+
+.cert-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .cert-info {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -1302,6 +1308,7 @@ section {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  margin-top: 0.15rem;
 }
 
 .cert-icon svg {
@@ -1310,10 +1317,11 @@ section {
 }
 
 .cert-name {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.2rem;
+  line-height: 1.35;
 }
 
 .cert-issuer {
@@ -1324,8 +1332,37 @@ section {
 .cert-date {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-weight: 500;
+  color: var(--text-accent);
+  background: var(--bg-badge);
+  border: 1px solid var(--border-accent);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
   white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cert-desc {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cert-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  width: fit-content;
+  transition: all var(--transition-fast);
+}
+
+.cert-link:hover {
+  color: var(--text-accent);
+  transform: translateX(2px);
 }
 
 /* ==========================================================================
