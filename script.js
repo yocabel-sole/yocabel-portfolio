@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // -------------------------------------------------------------
     const header = document.getElementById("site-header");
     const backToTopBtn = document.getElementById("back-to-top");
-    const navLinks = document.querySelectorAll(".nav-desktop .nav-link");
+    const navLinks = document.querySelectorAll(".nav-desktop .nav-link, .mobile-menu .nav-link");
     const sections = document.querySelectorAll("section[id]");
 
     window.addEventListener("scroll", () => {
@@ -101,20 +101,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileDrawer = document.getElementById("mobile-drawer");
     const mobileLinks = document.querySelectorAll(".mobile-link");
 
+    function setMenuOpen(isOpen) {
+        if (header) {
+            document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+            header.classList.toggle("is-menu-open", isOpen);
+        }
+
+        mobileDrawer.classList.toggle("is-open", isOpen);
+        mobileToggle.classList.toggle("is-active", isOpen);
+        mobileToggle.setAttribute("aria-expanded", String(isOpen));
+        mobileToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+        mobileDrawer.setAttribute("aria-hidden", String(!isOpen));
+        if ("inert" in mobileDrawer) {
+            mobileDrawer.inert = !isOpen;
+        }
+        document.body.classList.toggle("nav-open", isOpen);
+    }
+
     if (mobileToggle && mobileDrawer) {
+        setMenuOpen(false);
+
         mobileToggle.addEventListener("click", () => {
-            const isOpen = mobileDrawer.classList.toggle("is-open");
-            mobileToggle.classList.toggle("is-active", isOpen);
-            mobileToggle.setAttribute("aria-expanded", isOpen);
+            const willOpen = !mobileDrawer.classList.contains("is-open");
+            setMenuOpen(willOpen);
+            if (willOpen) {
+                const firstLink = mobileDrawer.querySelector(".mobile-link");
+                if (firstLink) firstLink.focus();
+            }
         });
 
-        // Close drawer when a link is clicked
         mobileLinks.forEach(link => {
             link.addEventListener("click", () => {
-                mobileDrawer.classList.remove("is-open");
-                mobileToggle.classList.remove("is-active");
-                mobileToggle.setAttribute("aria-expanded", "false");
+                setMenuOpen(false);
             });
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && mobileDrawer.classList.contains("is-open")) {
+                setMenuOpen(false);
+                mobileToggle.focus();
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth >= 1025 && mobileDrawer.classList.contains("is-open")) {
+                setMenuOpen(false);
+            }
         });
     }
 

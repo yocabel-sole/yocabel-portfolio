@@ -2,7 +2,9 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#080c14" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
     <title>Yocabel Gidey | Electrical &amp; Computer Engineer · AI/ML &amp; Full-Stack</title>
     
     <!-- Meta & SEO Tags -->
@@ -16,6 +18,11 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="./assets/profile-pic.jpg">
     
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mediaqueries.css">
@@ -37,16 +44,18 @@
                 <span>Yocabel</span><span class="logo-dot">.</span>
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="nav-desktop" aria-label="Main Navigation">
-                <ul class="nav-menu-desktop">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#education" class="nav-link">Education</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+            <div class="nav-cluster">
+                <!-- Desktop Navigation -->
+                <nav class="nav-desktop" aria-label="Main Navigation">
+                    <ul class="nav-menu-desktop">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#experience" class="nav-link">Experience</a></li>
+                        <li><a href="#education" class="nav-link">Education</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
 
                 <div class="nav-actions">
                     <!-- Theme Toggle -->
@@ -66,19 +75,20 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
+
+                    <!-- Mobile Hamburger Toggle -->
+                    <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
-            </nav>
-
-            <!-- Mobile Hamburger Toggle -->
-            <button class="mobile-nav-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            </div>
         </div>
+    </header>
 
-        <!-- Mobile Drawer -->
-        <div class="mobile-drawer" id="mobile-drawer">
+    <!-- Mobile Drawer sits outside the header so the header blur does not trap it -->
+    <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile" aria-hidden="true">
             <ul class="mobile-menu">
                 <li><a href="#about" class="nav-link mobile-link">About</a></li>
                 <li><a href="#skills" class="nav-link mobile-link">Skills</a></li>
@@ -87,18 +97,26 @@
                 <li><a href="#education" class="nav-link mobile-link">Education</a></li>
                 <li><a href="#contact" class="nav-link mobile-link">Contact</a></li>
             </ul>
-            <div style="display: flex; gap: 1rem; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
-                <a href="#contact" class="btn btn-primary mobile-link" style="flex: 1;">Get in Touch</a>
+            <div class="mobile-drawer-actions">
+                <a href="#contact" class="btn btn-primary mobile-link">Get in Touch</a>
                 <button id="mobile-theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
                         <circle cx="12" cy="12" r="5"></circle>
                         <line x1="12" y1="1" x2="12" y2="3"></line>
                         <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
                 </button>
             </div>
-        </div>
-    </header>
+        </nav>
 
     <main id="main-content">
         <!-- HERO SECTION -->
@@ -180,7 +198,7 @@
                     <div class="hero-media-wrapper">
                         <div class="avatar-ambient-glow" aria-hidden="true"></div>
                         <div class="avatar-frame">
-                            <img src="./assets/profile-pic.jpg" alt="Yocabel Gidey - Electrical &amp; Computer Engineer" class="avatar-img">
+                            <img src="./assets/profile-pic.jpg" alt="Yocabel Gidey - Electrical &amp; Computer Engineer" class="avatar-img" width="1119" height="1119" decoding="async" fetchpriority="high">
                         </div>
                     </div>
                 </div>
@@ -228,10 +246,10 @@
                                 </div>
                                 <div>
                                     <h3 class="bento-card-title">Academic Excellence</h3>
-                                    <span style="font-size:0.8125rem; color:var(--text-muted);">Mekelle University · Computer Engineering</span>
+                                    <span class="bento-kicker">Mekelle University · Computer Engineering</span>
                                 </div>
                             </div>
-                            <p style="font-size: 0.9375rem; color: var(--text-secondary);">
+                            <p class="bento-text">
                                 Graduated with First-Class Honors (CGPA 3.90/4.00), demonstrating mastery in algorithms, AI, operating systems, and computer vision.
                             </p>
                             <div class="bento-tags">
@@ -253,10 +271,10 @@
                                 </div>
                                 <div>
                                     <h3 class="bento-card-title">Core Focus &amp; Interests</h3>
-                                    <span style="font-size:0.8125rem; color:var(--text-muted);">Specialized Technical Domains</span>
+                                    <span class="bento-kicker">Specialized Technical Domains</span>
                                 </div>
                             </div>
-                            <p style="font-size: 0.9375rem; color: var(--text-secondary);">
+                            <p class="bento-text">
                                 Interested in applying data science to healthcare, agriculture, and community development.
                             </p>
                             <div class="bento-tags">
@@ -578,7 +596,7 @@
                             <div>
                                 <h3 class="timeline-role">Data Annotation Worker</h3>
                                 <div class="timeline-org">R&amp;D Entrepreneurship and Outsourcing Center PLC (R&amp;D Group)</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Ethiopia</div>
+                                <div class="timeline-location">Ethiopia</div>
                             </div>
                             <span class="timeline-badge">Nov 2026 – Present</span>
                         </div>
@@ -588,7 +606,7 @@
                             <li>Contribute to preparing structured, labeled datasets for potential AI and machine learning applications.</li>
                             <li>Maintain confidentiality and meet assigned task deadlines.</li>
                         </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">Data Annotation</span>
                             <span class="tech-tag">Dataset Labeling</span>
                             <span class="tech-tag">Quality Assurance</span>
@@ -604,7 +622,7 @@
                             <div>
                                 <h3 class="timeline-role">AI/ML Intern</h3>
                                 <div class="timeline-org">MeMi Trading PLC (Zemen Bazaar)</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Mekelle, Ethiopia</div>
+                                <div class="timeline-location">Mekelle, Ethiopia</div>
                             </div>
                             <span class="timeline-badge">05/05/2026 – 03/08/2026</span>
                         </div>
@@ -614,7 +632,7 @@
                             <li>Assisted in developing, training, and evaluating machine-learning models using appropriate performance metrics to generate useful predictions and recommendations.</li>
                             <li>Collaborated with interns and team members on hands-on AI/ML projects, documenting project work, findings, and model results while strengthening practical skills in artificial intelligence and machine learning.</li>
                         </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Machine Learning</span>
                             <span class="tech-tag">Data Preprocessing</span>
@@ -630,7 +648,7 @@
                             <div>
                                 <h3 class="timeline-role">Mathematics and Computer Programming and Basic Computer Skills Tutor</h3>
                                 <div class="timeline-org">IQ Plus Academy</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Mekelle, Ethiopia</div>
+                                <div class="timeline-location">Mekelle, Ethiopia</div>
                             </div>
                             <span class="timeline-badge">06/01/2025 – Current</span>
                         </div>
@@ -640,7 +658,7 @@
                             <li>Provide basic computer skills training and individual mentoring, helping students build digital confidence and feel comfortable asking questions.</li>
                             <li>Teach approximately 30 students per class, working five days a week for five hours per day while supporting students’ academic and personal development.</li>
                         </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">Mathematics Education</span>
                             <span class="tech-tag">Programming Instruction (HTML, CSS, JS)</span>
                             <span class="tech-tag">Basic Computer Skills</span>
@@ -655,7 +673,7 @@
                             <div>
                                 <h3 class="timeline-role">Community Support &amp; Data Volunteer</h3>
                                 <div class="timeline-org">Organization for Social Services, Health &amp; Development (OSSHD)</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Economic Recovery &amp; Livelihoods · Mekelle, Ethiopia</div>
+                                <div class="timeline-location">Economic Recovery &amp; Livelihoods · Mekelle, Ethiopia</div>
                             </div>
                             <span class="timeline-badge">Dec 2024 – Dec 2025</span>
                         </div>
@@ -666,7 +684,7 @@
                             <li>Created data summaries and dashboards to support evidence-based decisions, beneficiary tracking, and program implementation.</li>
                             <li>Collaborated with community coordinators and trained and supervised <strong>10 volunteers</strong>, ensuring accurate data collection and responsible handling of sensitive beneficiary information.</li>
                         </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">Data Management</span>
                             <span class="tech-tag">Beneficiary Intake Tools</span>
                             <span class="tech-tag">Data Cleaning &amp; Validation</span>
@@ -682,7 +700,7 @@
                             <div>
                                 <h3 class="timeline-role">IT Support Intern</h3>
                                 <div class="timeline-org">Wegagen Bank</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Mekelle, Ethiopia</div>
+                                <div class="timeline-location">Mekelle, Ethiopia</div>
                             </div>
                             <span class="timeline-badge">10/06/2025 – 29/08/2025</span>
                         </div>
@@ -693,7 +711,7 @@
                             <li>Conducted routine IT checks to help maintain reliable systems and network services.</li>
                             <li>Assisted staff with day-to-day technical issues and provided timely troubleshooting support.</li>
                         </ul>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">IT Support</span>
                             <span class="tech-tag">Hardware Troubleshooting</span>
                             <span class="tech-tag">Software Configuration</span>
@@ -709,14 +727,14 @@
                             <div>
                                 <h3 class="timeline-role">Potential of Wind in Tigray</h3>
                                 <div class="timeline-org">Data-Driven Assessment &amp; Feasibility Study</div>
-                                <div style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">Tigray, Ethiopia</div>
+                                <div class="timeline-location">Tigray, Ethiopia</div>
                             </div>
                             <span class="timeline-badge">02/06/2024 – 04/22/2024</span>
                         </div>
                         <p class="timeline-description">
                             Conducted a data-driven assessment of wind energy potential in the Tigray region using meteorological datasets and geospatial analysis. The project involved preprocessing long-term wind speed data, analyzing seasonal and spatial variability, and evaluating site suitability for small- and large-scale wind power generation. The study emphasized renewable energy feasibility, sustainability considerations, and data-backed energy planning for regional development.
                         </p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <div class="timeline-tags">
                             <span class="tech-tag">Geospatial Analysis</span>
                             <span class="tech-tag">Meteorological Data</span>
                             <span class="tech-tag">Renewable Energy</span>
@@ -987,7 +1005,7 @@
                                     <a href="mailto:gideyyocabel43@gmail.com" id="email-address">gideyyocabel43@gmail.com</a>
                                 </div>
                             </div>
-                            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                            <div class="contact-hub-actions">
                                 <a href="mailto:gideyyocabel43@gmail.com" class="btn btn-primary btn-sm">
                                     <span>Send Email</span>
                                 </a>
@@ -1056,11 +1074,11 @@
     <footer class="site-footer">
         <div class="container footer-content">
             <div class="footer-top">
-                <div>
-                    <a href="#home" class="site-logo" style="font-size: 1.25rem;">
+                <div class="footer-brand">
+                    <a href="#home" class="site-logo footer-logo">
                         <span>Yocabel Gidey</span><span class="logo-dot">.</span>
                     </a>
-                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem;">
+                    <p class="footer-tagline">
                         Electrical &amp; Computer Engineer · AI/ML &amp; Full-Stack Developer
                     </p>
                 </div>
